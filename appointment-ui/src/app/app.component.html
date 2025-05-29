@@ -1,0 +1,30 @@
+<h1>Appointment Booking</h1>
+
+<form (ngSubmit)="addAppointment()">
+  <input [(ngModel)]="newAppointment.patientName" name="patientName" placeholder="Patient Name" required />
+  <input [(ngModel)]="newAppointment.doctorName" name="doctorName" placeholder="Doctor Name" required />
+  <input [(ngModel)]="newAppointment.status" name="status" placeholder="Status" required />
+  <button type="submit">Add Appointment</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Patient</th>
+      <th>Doctor</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of appointments">
+      <td>{{ a.id }}</td>
+      <td>{{ a.patientName }}</td>
+      <td>{{ a.doctorName }}</td>
+      <td>{{ a.status }}</td>
+      <td><button (click)="deleteAppointment(a.id!)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
